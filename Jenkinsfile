@@ -22,7 +22,7 @@ pipeline {
         steps {
             retry(4){
           echo  "test step"
-          build 'texastrail_ci'
+         
             }
           sh 'mvn test'
         }
