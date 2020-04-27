@@ -32,7 +32,7 @@ pipeline {
         stage('deploy'){
         steps {
          
-         sshPublisher(publishers: [sshPublisherDesc(configName: 'Docker-host', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'docker build -t eab046/pcontact:v.${BUILD_NUMBER} .; docker tag pcontact:v.${BUILD_NUMBER} eab046/pcontact:v.${BUILD_NUMBER}; docker push eab046/pcontact:v.${BUILD_NUMBER} ', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '/webapp/target', sourceFiles: '**/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+         sshPublisher(publishers: [sshPublisherDesc(configName: 'Docker-host', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'docker build -t eab046/pcontact:v.${BUILD_NUMBER} .; docker tag eab046/pcontact:v.${BUILD_NUMBER} eab046/pcontact:v.${BUILD_NUMBER}; docker push eab046/pcontact:v.${BUILD_NUMBER} ', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '/webapp/target', sourceFiles: '**/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                    
         }
       
